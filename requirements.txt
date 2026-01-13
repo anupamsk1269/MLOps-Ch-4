@@ -1,0 +1,20 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+flask>=3.0.0
+gunicorn>=21.0.0
+transformers>=4.30.0
+onnxruntime>=1.16.0
+onnx>=1.14.0
+onnxscript
+pandas
+boto3
+sagemaker<3.0.0
+numpy<2.0.0
+pylint
+pytest
+# This installs the tiny CPU-only version of torch
+torch
+
+
+
+
+

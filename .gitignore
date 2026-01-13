@@ -1,0 +1,36 @@
+# --- Python Environment ---
+.venv/
+venv/
+env/
+bin/
+lib/
+share/
+Include/
+*.pyc
+__pycache__/
+
+# --- Machine Learning Models ---
+# We usually ignore the raw/large model files and only keep the final ONNX 
+# or use Git LFS. If your ONNX is >100MB, keep it ignored.
+models/*.bin
+models/*.onnx
+models/*.data
+models/*.pt
+models/*.pth
+models/*.h5
+models/*.onnx
+
+# --- Data and Logs ---
+data/
+logs/
+*.log
+
+# --- OS & IDE Files ---
+.DS_Store
+.vscode/
+.idea/
+.env
+
+# --- Docker ---
+# Ignore built image layers and temporary docker files
+.docker/

@@ -1,0 +1,28 @@
+name: Python Multi-Version CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"] # The multi-version part
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Convert model to ONNX
+      run:  python convert_roberta.py
+    - name: Lint with pylint
+      run: |
+        make lint
+    - name: Test with pytest
+      run: |
+        make test

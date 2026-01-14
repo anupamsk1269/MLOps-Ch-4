@@ -59,6 +59,12 @@ def run_ingestion():
     
     # 5. Ingest
     print(f"🚀 Ingesting {len(df)} records into Feature Group: {fg_name}...")
+    # 1. Define only the columns that exist in your Feature Group
+    valid_features = ["guid", "event_time", "sentiment", "score"]
+
+    # 2. Filter the dataframe to ONLY these columns
+    # This drops the "text", "label", and "text_id" columns that are causing the error
+    df_to_ingest = final_df[valid_features]
     try:
         feature_group.ingest(data_frame=df, max_workers=3, wait=True)
         print("✅ Ingestion successfully completed!")

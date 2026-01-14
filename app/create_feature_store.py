@@ -7,7 +7,7 @@ if venv_path not in sys.path:
     sys.path.insert(0, venv_path)
 print("✅ Set the vertual envionment path")
 import boto3
-import sagemaker
+#import sagemaker
 from sagemaker.session import Session
 #from sagemaker import Session
 from sagemaker.feature_store.feature_group import FeatureGroup

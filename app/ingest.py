@@ -15,12 +15,12 @@ print(f"Sys Path: {sys.path}")
 # Now try the imports
 from sagemaker.session import Session
 import pandas as pd
-import pandas as pd
+#import pandas as pd
 import time
-import os
+#import os
 import boto3
 import sagemaker
-from sagemaker.session import Session
+#from sagemaker.session import Session
 from sagemaker.feature_store.feature_group import FeatureGroup
 
 def run_ingestion():
@@ -62,7 +62,7 @@ def run_ingestion():
     try:
         feature_group.ingest(data_frame=df, max_workers=3, wait=True)
         print("✅ Ingestion successfully completed!")
-    except Exception as e:
+    except ClientError as e:
         print(f"❌ Ingestion failed: {e}")
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ install:
 
 lint:
 	# Add the current directory to the path so pylint can find imports
-	export PYTHONPATH=$$(pwd) && pylint --disable=R,C,W0621 app/*.py
+	-export PYTHONPATH=$$(pwd) && pylint --disable=R,C,W0621 app/*.py
 
 test:
 	python -m pytest -vv app/test_main.py

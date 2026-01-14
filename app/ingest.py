@@ -43,6 +43,7 @@ def run_ingestion():
 
     # 3. Load and Prepare Data
     df = pd.read_csv(input_file)
+    final_df = pd.DataFrame(processed_records)
     
     # Feature Store requires a unique ID and a Timestamp (EventTime)
     # We create a unique ID for each record based on current time

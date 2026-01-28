@@ -32,8 +32,8 @@ def run_ingestion():
     logger.info(f"--- Starting Ingestion Job for Group: {feature_group_name} ---")
     # 3. Read Data
     if not os.path.exists(input_data_path):
-       print(f"Error: {input_data_path} not found")
-       logger.error(f"CRITICAL: Input file missing at {input_path}")
+        print(f"Error: {input_data_path} not found")
+        logger.error(f"CRITICAL: Input file missing at {input_path}")
         return
 
     df = pd.read_csv(input_data_path)

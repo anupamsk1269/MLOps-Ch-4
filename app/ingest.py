@@ -35,21 +35,21 @@ def run_ingestion():
         print(f"Error: {input_data_path} not found")
         logger.error(f"CRITICAL: Input file missing at {input_path}")
         return
-
-    df = pd.read_csv(input_data_path)
-    logger.info(f"Loaded {len(df)} rows from CSV. Starting RoBERTa processing...")
-    # 4. Process Logic (Simulated or actual RoBERTa logic)
-    for index, row in df.iterrows():
+    else:
+        df = pd.read_csv(input_data_path)
+        logger.info(f"Loaded {len(df)} rows from CSV. Starting RoBERTa processing...")
+        # 4. Process Logic (Simulated or actual RoBERTa logic)
+        for index, row in df.iterrows():
         # Example processing - ensure these match your model output
-        if index % 100 == 0 and index > 0:
+            if index % 100 == 0 and index > 0:
                 logger.info(f"Progress: Processed {index} records...")
-        record = {
+            record = {
             "guid": str(row.get("guid", index)),
             "event_time": pd.Timestamp.now().timestamp(),
             "sentiment": "neutral", # Replace with model prediction
             "score": 0.0            # Replace with model score
-        }
-        processed_records.append(record)
+            }
+            processed_records.append(record)
 
     # 5. Create final_df safely
     if processed_records:
